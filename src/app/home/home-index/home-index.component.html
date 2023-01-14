@@ -1,0 +1,39 @@
+<div class="row">
+    <h6 class="col"> Bienvenue ! Appuyer sur <span class="btn btn-outline-primary p-1" style="font-size: 10px;" (click)="melanger()">shuffle</span> pour mélanger </h6>
+    <!-- <div class="col d-flex">
+        <h6>Valeur par défaut</h6>
+        <input type="number" class="form-control mx-3 w-25 p-0 mb-3" value="10" style="width:40px !important;">
+    </div> -->
+</div>
+
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item" *ngFor="let groupe of groupes">
+      <h2 class="accordion-header" id="{{groupe.sujet.id}}">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" attr.data-bs-target="#collapseOne{{groupe.sujet.id}}" aria-expanded="true" aria-controls="collapseOne">
+          Sujet : {{ groupe.sujet.libelle }}
+        </button>
+      </h2>
+      <div id="collapseOne{{groupe.sujet.id}}" class="accordion-collapse collapse" attr.aria-labelledby="{{groupe.sujet.id}}" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Matricule</th>
+                        <th>Âge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let etudiant of groupe.groupes">
+                        <td>{{ etudiant.prenom }}</td>
+                        <td>{{ etudiant.nom }}</td>
+                        <td>{{ etudiant.matricule }}</td>
+                        <td>{{ etudiant.age }} ans</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>
